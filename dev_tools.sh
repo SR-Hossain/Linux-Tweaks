@@ -28,39 +28,39 @@ function python_commands {
 }
 
 
-function create_django_project {
+create_django_project() {
     echo -e "Enter the name of the project: "
     read -n 1 project_name
     django-admin startproject $project_name
 }
 
-function create_django_app {
+create_django_app() {
     echo -e "Enter the name of the app: "
     read -n 1 app_name
     python3 manage.py startapp $app_name
 }
 
-function run_django_server {
+run_django_server() {
     echo -e "Args: "
     read -n 1 args
     python3 manage.py runserver $args
 }
 
-function make_migrations {
+make_migrations() {
     echo -e "Enter the name of the app: "
     read -n 1 app_name
     python3 manage.py makemigrations $app_name
 }
 
-function migrate {
+migrate() {
     python3 manage.py migrate
 }
 
-function create_superuser {
+create_superuser() {
     python3 manage.py createsuperuser
 }
 
-function run_pytests {
+run_pytests() {
     echo -e "Show Pass Results too?(y/N): "
     read -n 1 show_pass_results
     
@@ -71,11 +71,11 @@ function run_pytests {
     fi
 }
 
-function run_shell {
+run_shell() {
     python3 manage.py shell
 }
 
-function run_pytests_with_ai {
+run_pytests_with_ai() {
     echo "args: "
     read args
     pytest $args 2>&1 | tee /home/sr/pytest_ai/pytest_ai_log.txt
@@ -84,7 +84,7 @@ function run_pytests_with_ai {
 }
 
 
-function django_commands {
+django_commands() {
     clear
     echo -e "1. Run Django server"
     echo -e "2. Run pytests"
@@ -122,7 +122,7 @@ function django_commands {
     django_commands
 }
 
-function get_pub {
+get_pub() {
     echo "clean flutter? (y/N): "
     read -n 1 clean
     if [ $clean == "y" ]; then
@@ -188,31 +188,31 @@ function get_pub {
     flutter pub get
 }
 
-function create_flutter_project {
+create_flutter_project() {
     echo -e "Enter the name of the project: "
     read -n 1 project_name
     flutter create $project_name
 }   
 
-function upgrade_flutter {
+upgrade_flutter() {
     flutter upgrade
 }
 
-function doctor_flutter {
+doctor_flutter() {
     flutter doctor
 }
 
-function run_flutter_project {
+run_flutter_project() {
     flutter run
 }
 
-function build_flutter_project {
+build_flutter_project() {
     flutter build apk
 }
 
 
 
-function flutter_commands {
+flutter_commands() {
     if command -v flutter &> /dev/null; then
         clear
     else
