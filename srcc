@@ -41,11 +41,11 @@ function srcc_main {
     read -n 1 choice
 
     case $choice in
-        1) ./$dir/apt_commands.sh ;;
-        2) ./$dir/audio_tweaks.sh ;;
-        3) ./$dir/cool_tweaks.sh ;;
-        4) ./$dir/dev_tools.sh ;;
-        5) ./$dir/others.sh ;;
+        1) /bin/bash $dir/apt_commands.sh ;;
+        2) /bin/bash $dir/audio_tweaks.sh ;;
+        3) /bin/bash $dir/cool_tweaks.sh ;;
+        4) /bin/bash $dir/dev_tools.sh ;;
+        5) /bin/bash $dir/others.sh ;;
         6) echo && exit ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
