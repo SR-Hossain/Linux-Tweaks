@@ -1,0 +1,90 @@
+#!/bin/bash
+
+folder_name=srcc
+dir=$HOME/$folder_name
+
+function help {
+    echo "Usage: srcc (SR Common Commands)"
+    echo
+    echo "Hi I am Syed Sazid Hossain Rezvi"
+    echo "Contact me at ssh.rezvi@gmail.com for any query."
+    echo
+    echo "This script is a collection of common commands that I use frequently."
+    echo "It is a simple script that helps me to run the commands quickly."
+    echo "It is not a replacement for the actual commands."
+    echo "You can check the actual files in your home directory."
+    echo
+    echo "Options:"
+    echo "  -h, --help    Display this help message."
+    echo
+    echo "Examples:"
+    echo "  srcc"
+    echo "  srcc -h"
+    echo "  srcc --help"
+    echo "  srcc --update"
+    echo "  srcc --fix"
+}
+
+function srcc_main {
+    clear
+    echo -e "\e[40mSRCC (SR Common Commands)\e[0m"
+    echo ""
+    echo -e "\e[44m1. APT Commands"
+    echo -e "2. Audio Tweaks and commands"
+    echo -e "3. Install Cool Tweaks"
+    echo -e "4. Dev Tools (e.g. Flutter, Django, ... )"
+    echo -e "5. Others (e.g. Fix Opera FFMPEG)"
+    echo -e "6. Exit\e[0m"
+    echo ""
+    echo -n "Enter your choice: "
+    echo
+    read -n 1 choice
+
+    case $choice in
+        1) ./$dir/apt_commands.sh ;;
+        2) ./$dir/audio_tweaks.sh ;;
+        3) ./$dir/cool_tweaks.sh ;;
+        4) ./$dir/dev_tools.sh ;;
+        5) ./$dir/others.sh ;;
+        6) echo && exit ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+
+    echo ""
+    echo -n "Press any key to go back to main menu..."
+    read -n 1
+    echo
+    srcc_main
+}
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+    help
+    exit
+elif [ "$1" == "--update" ]; then
+    echo "Updating SRCC..."
+    if [ ! -d "$dir" ]; then
+        echo "SRCC is broken. Please run 'srcc --fix' to install it properly."
+        exit
+    fi
+    cd $dir
+    git pull
+    sudo cp srcc /usr/bin/srcc
+    echo "SRCC updated successfully. Re-run 'srcc' command to use the updated version."
+    exit
+elif [ "$1" == "--fix" ]; then
+    echo "Fixing SRCC..."
+    cd $HOME
+    if [ -d "$dir" ]; then
+        rm -rf "$dir"
+    fi
+    git clone https://github.com/SR-Hossain/Linux-Tweaks.git $folder_name
+    cd $dir
+    chmod +x *
+    sudo cp srcc /usr/bin/srcc
+    echo "SRCC fixed successfully. Re-run 'srcc' command to use the fixed version."
+    exit
+fi
+
+
+
+srcc_main
