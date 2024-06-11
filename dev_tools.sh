@@ -220,13 +220,14 @@ flutter_commands() {
         clear
     fi
 
+    echo -e "\e[40mFlutter\e[0m"
+
     echo -e "1. Get Pub"
-    echo -e "3. Create a new Flutter project"
-    echo -e "1. Upgrade Flutter"
-    echo -e "2. Doctor Flutter"
-    echo -e "4. Run Flutter project"
-    echo -e "5. Build Flutter project"
-    echo -e "6. Exit"
+    echo -e "2. Create a new Flutter project"
+    echo -e "4. Doctor Flutter"
+    echo -e "5. Run Flutter project"
+    echo -e "6. Build Flutter project"
+    echo -e "7. Exit"
     echo ""
     echo -e "Enter your choice: (default 1) "
     echo ""
