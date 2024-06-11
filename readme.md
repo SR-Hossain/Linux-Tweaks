@@ -20,7 +20,7 @@ To get started with Linux Tweaks, follow these steps:
    cd srcc
    chmod +x *
    sudo cp srcc /usr/bin/srcc
-   echo "SRCC fixed successfully. Re-run 'srcc' command to use the fixed version."
+   srcc --help
    ```
 2. Explore the different directories and files to find the tweaks that interest you. 🔍
 3. Apply the tweaks to your Linux system by following the provided instructions. 🛠️
