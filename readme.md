@@ -16,7 +16,7 @@ To get started with Linux Tweaks, follow these steps:
 
    ```bash
    cd home
-   git clone https://github.com/your-username/Linux-Tweaks.git srcc
+   git clone https://github.com/SR-Hossain/Linux-Tweaks.git srcc
    cd srcc
    chmod +x *
    sudo cp srcc /usr/bin/srcc
